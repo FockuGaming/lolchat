@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=sql205.byethost7.com;dbname=b7_17278646_chat', 'b7_17278646', 'Master12');
+$bdd = new PDO('mysql:host=MySqlserver;dbname=DatabaseName', 'Username', 'Password');
 $limit = 6;
 
 $image = $nomDestination;
@@ -31,7 +31,7 @@ if ((in_array($extensionFichier, $extensionsAutorisees))) {
     if (move_uploaded_file($_FILES["monfichier"]["tmp_name"],$repertoireDestination.$nomDestination)) {
         $insertimg = $bdd->prepare("UPDATE msg SET image = ? WHERE message = ?");
       $insertimg->execute(array($nomDestination, $message));;
-      header('location :#down')
+      
   
       } 
 }
