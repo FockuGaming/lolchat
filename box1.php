@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=sql205.byethost7.com;dbname=b7_17278646_chat', 'b7_17278646', 'Master12');
+$bdd = new PDO('mysql:host=Mysqlserver;dbname=DatabaseName', 'Username', 'Password');
 $limit = 6;
 
 $image = $nomDestination;
@@ -36,10 +36,6 @@ if ((in_array($extensionFichier, $extensionsAutorisees))) {
 }
 }
 
-if(isset($_POST['down'])){
-	 	$limited = $limit;
-	$limit = $limited + 10;
-	}
 
 ?>
 <html>
