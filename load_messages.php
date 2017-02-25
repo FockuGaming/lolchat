@@ -1,5 +1,5 @@
 	<?php 
-	$bdd = new PDO('mysql:host=sql205.byethost7.com;dbname=b7_17278646_chat', 'b7_17278646', 'Master12');
+	$bdd = new PDO('mysql:host=Mysqlserver;dbname=DatabaseName', 'Username', 'Password');
  $allmsg = $bdd->query('SELECT id, champname, message, image FROM msg ORDER BY id DESC LIMIT 0 , 10');
     while ($msg = $allmsg->fetch()) {
 	$avatar = $msg['champname'].".png";
