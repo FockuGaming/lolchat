@@ -224,46 +224,46 @@ box-shadow: 5px 5px 5px #eee;
   <form class="del"  method="POST">
               <input type="submit" value="delete" class="submit" name="del"/></form></div>
         <div id="messages">
-    <?php 
-    $allmsg = $bdd->query('SELECT id, champname, message, image FROM msg ORDER BY id DESC LIMIT 0 , 10');
+    <?php
+    $allmsg = $bdd->query('SELECT id, champname, message, image FROM msg ORDER BY id DESC LIMIT 0, 10');
     while ($msg = $allmsg->fetch()) {
 	$avatar = $msg['champname'].".png";
   if (isset($_POST['del'])) {
   $delete = "DELETE FROM `b7_17278646_chat`.`msg` WHERE `msg`.`id` = ".$msg['id']."";
   $bdd->exec($delete);
-    
+
 }
     $chars = array(":)", ":D", "--'","O_O");
     $icons = array('<img src="Smileys/smile.png" />', '<img src="Smileys/happy.png"/>', '<img src="Smileys/embarased.png"/>','<img src="Smileys/impressed.png"/>');
-    $msg['message'] = str_replace($chars, $icons, $msg['message']);  
+    $msg['message'] = str_replace($chars, $icons, $msg['message']);
     ?>
-    
+
               <div class="msg">
-              
+
       <font color="blue"><b><?= $msg['champname'] ?></b><br/></font>
 <div class="avatar"><img src="http://ddragon.leagueoflegends.com/cdn/7.4.1/img/champion/<?php echo $avatar; ?>" draggable="false" height="60" width="60"/></div>
          <font color="black"><p><b><?= $msg['message'] ?></b></p></font>
 			<div><img src="<?=$msg['image'] ?>"></img></div><br/>
-        
+
       </div>
     <br/>
-    <?php 
+    <?php
     }
     ?>
     </div><br>
  <br><br><br><br>
-    
+
        <div id="down"></div>
-    
+
     <div  class="textzone">
   <form method="POST" enctype="multipart/form-data" >
   <div class="select-style">
       <select name="champname">
 		<option>--Select Champion--</option>
-      <?php 
+      <?php
 $champnames = $bdd->query('SELECT champion FROM lolfb ORDER BY champion');
 while($d = $champnames->fetch()) {?>
-         <option><?= $d['champion'] ?></option>  
+         <option><?= $d['champion'] ?></option>
          <?php } ?>
       </select>
   </div>
@@ -285,3 +285,4 @@ function load_messages() {
 
 </body>
 </html>
+
